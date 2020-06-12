@@ -7,7 +7,7 @@ const requireAll = require('require-all');
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 const prefix = "?";
 
-client.login()
+client.login(process.env.token)
 
 //Обработчик событий
 const files_events = requireAll({
