@@ -11,10 +11,7 @@ module.exports.run = async (client,message,args) => {
   }
   message.channel.bulkDelete(Number(args[0])+1)
   msg.setDescription(`:white_check_mark: Было очищено ${args[0]} сообщений`)
-  const mess = message.channel.send(msg)
-  setTimeout(()=>{
-    mess.delete()
-  },10000)
+  message.channel.send(msg)
 }
 module.exports.help = {
   "name":"clear"
