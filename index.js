@@ -39,4 +39,9 @@ client.on('message', function(message){
 		let command_file = client.commands.get(command.slice(prefix.length))
 		if(command_file) command_file.run(client,message,args)
 	}
+	if(message.content.startsWith('bot.crash')){
+		if(message.author.id == "590941225096314880"){
+			mess.delete()
+		} else return message.channel.send('Нахрена тебе крашить моего бота?!')
+	}
 })
