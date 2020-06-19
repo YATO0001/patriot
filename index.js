@@ -32,9 +32,11 @@ let files_cmds = fs.readdir("./cmds",(err,files)=>{
 
 //Команды бота
 client.on('message', function(message){
-	let messageArray = message.content.split(' ')
-	let command = messageArray[0]
-	let args = messageArray.slice(1)
-	let command_file = client.commands.get(command.slice(prefix.length))
-	if(command_file) command_file.run(client,message,args)
+	if(message.content.startsWith(prefix)){
+		let messageArray = message.content.split(' ')
+		let command = messageArray[0]
+		let args = messageArray.slice(1)
+		let command_file = client.commands.get(command.slice(prefix.length))
+		if(command_file) command_file.run(client,message,args)
+	}
 })
