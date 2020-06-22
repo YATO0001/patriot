@@ -26,7 +26,7 @@ module.exports.run = async (client,message,args) => {
     msg.setDescription(':x: Я не могу его замутить так как моя роль ниже его.')
     return message.channel.send(msg)
   }
-  const role = message.guild.roles.cache.get('mute') || message.guild.roles.cache.get('немой') || message.guild.roles.cache.get('мут')
+  const role = message.guild.roles.cache.find(f => f.name == 'Muted')
   member.roles.add(role)
   msg.setDescription(`:white_check_mark: Участник ${member.displayName} был замьючен по причине: ${args.slice(2).join(' ')} на ${args[1]} дней`)
   msg.addField('Участник:',`${member.displayName} ${member.id}`)
@@ -36,7 +36,7 @@ module.exports.run = async (client,message,args) => {
   setTimeout(()=>{
     member.roles.remove(role)
     message.channel.send(`${member.nickname} теперь снова может писать`)
-  }, Number(args[1]) * 60 * 1000)
+  }, Number(args[1]) * 60 * 60 * 1000)
 }
 module.exports.help = {
   "name":"mute"
