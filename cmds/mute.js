@@ -6,7 +6,7 @@ module.exports.run = async (client,message,args) => {
   msg.setFooter(`Команду вызвал: ${message.member.user.tag}. @Patriot™. Все права завоёваны.`, message.member.user.avatarURL())
   msg.setColor(0xFF0000)
   //Проверка на права пользователя
-  if(!message.member.hasPermission("MANAGE_CHANNELS") || message.member.hasPermission('ADMINISTRATOR')) {
+  if(!message.member.hasPermission("MANAGE_CHANNELS") || !message.member.hasPermission('ADMINISTRATOR')) {
     msg.setDescription(':x: У вас не достаточно прав для этой команды.')
     return message.channel.send(msg)
   }
