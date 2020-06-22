@@ -35,7 +35,7 @@ module.exports.run = async (client,message,args) => {
   message.channel.send(msg)
   setTimeout(()=>{
     member.roles.remove(role)
-    message.channel.send(`${member.nickname} теперь снова может писать`)
+    message.channel.send(`${member.user.username} теперь снова может писать`)
   }, Number(args[1]) * 60 * 60 * 1000)
 }
 module.exports.help = {
